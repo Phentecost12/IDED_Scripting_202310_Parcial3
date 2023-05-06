@@ -29,4 +29,4 @@ public sealed class ObstacleSpawner : ObstacleSpawnerBase
             new Vector2(Random.Range(MinX, MaxX), YPos), // Sets the position to instantiate in 2D (Z is always 0)
             Quaternion.identity);
     }
-}
+} 

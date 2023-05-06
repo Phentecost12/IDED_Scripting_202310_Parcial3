@@ -2,7 +2,6 @@ using UnityEngine;
 
 public interface IPool
 {
-    public GameObject RetrieveInstance();
+    public GameObject GetOBJ();
 
-    public void RecycleInstance(GameObject instance);
 }

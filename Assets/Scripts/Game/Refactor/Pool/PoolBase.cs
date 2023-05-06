@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,16 +10,11 @@ public abstract class PoolBase : MonoBehaviour, IPool
     [SerializeField]
     private GameObject basePrefab;
 
-    private List<GameObject> instances = new List<GameObject>();
+    public List<GameObject> instances = new List<GameObject>();
 
-    public void RecycleInstance(GameObject instance)
+    private void Start()
     {
-        throw new System.NotImplementedException();
-    }
-
-    public GameObject RetrieveInstance()
-    {
-        throw new System.NotImplementedException();
+        PopulatePool();
     }
 
     private void PopulatePool()
@@ -26,6 +22,21 @@ public abstract class PoolBase : MonoBehaviour, IPool
         for (int i = 0; i < count; i++)
         {
             instances.Add(Instantiate(basePrefab, transform.position, Quaternion.identity));
+            instances[i].SetActive(false);
         }
+    }
+
+    public virtual GameObject GetOBJ()
+    {
+        for (int i = 0; i < instances.Count; i++)
+        {
+            if (!instances[i].activeInHierarchy)
+            {
+                instances[i].SetActive(true);
+                instances[i].GetComponent<Ipoolable>().SetUp(2);
+                return instances[i];
+            }
+        }
+        return null;
     }
 }

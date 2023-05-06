@@ -12,7 +12,7 @@ public sealed class GameController : GameControllerBase
     private ObstacleSpawner obstacleSpawner;
 
     protected override PlayerControllerBase PlayerController => playerController;
-
+      
     protected override UIManagerBase UiManager => uiManager;
 
     protected override ObstacleSpawnerBase Spawner => obstacleSpawner;
@@ -29,5 +29,5 @@ public sealed class GameController : GameControllerBase
         PlayerController?.SendMessage("OnGameOver");
         Spawner?.SendMessage("OnGameOver");
         base.SetGameOver();
-    }
+    } 
 }

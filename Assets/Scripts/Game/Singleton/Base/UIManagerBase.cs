@@ -46,7 +46,7 @@ public abstract class UIManagerBase : MonoBehaviour
             enabled = false;
             scoreLabel.text = "Invalid";
             timeLabel.text = "99:99:99";
-        }
+        } 
         else
         {
             UpdateScoreLabel();
@@ -97,4 +97,6 @@ public abstract class UIManagerBase : MonoBehaviour
         uiControl.enabled = val;
         uiControl.gameObject.SetActive(val);
     }
+
+    
 }

@@ -20,4 +20,4 @@ public sealed class PlayerController : PlayerControllerBase
         selectedBullet = bulletPrefabs[GameUtils.GetClampedValue(index, bulletPrefabs.Length)];
         uiManager.SendMessage("EnableIcon", index);
     }
-}
+}  
